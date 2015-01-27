@@ -6,5 +6,5 @@ done => 5 USD * 2 = 10 USD
 Smells:
 
 Make "amount" private
-Dollar side-effects?
+done => Dollar side-effects?
 Money rounding?
