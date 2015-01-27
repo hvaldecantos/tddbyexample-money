@@ -2,10 +2,11 @@ require 'rspec/core'
 
 class Dollar
   def initialize amount
-    @amount = 10
+    @amount = amount
   end
 
   def times multiplier
+    @amount *= multiplier
   end
 
   def amount
