@@ -41,6 +41,7 @@ RSpec.describe "Money" do
     expect(Dollar.new(5)).not_to eq(Dollar.new(6))
     expect(Franc.new(5)).to eq(Franc.new(5))
     expect(Franc.new(5)).not_to eq(Franc.new(6))
+    expect(Franc.new(5)).not_to eq(Dollar.new(5))
   end
 
   it "(Franc) can be multiplied" do
