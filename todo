@@ -16,4 +16,5 @@ Dollar/Franc duplication
 done => common equality
 common times
 done => Francs != Dollars
-need of currency?
+done => need of currency?
+delete test franc multiplication?

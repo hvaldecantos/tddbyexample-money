@@ -1,6 +1,10 @@
 require 'rspec/core'
 
 class Money
+  def initialize amount, currency
+    @amount = amount
+    @currency = currency
+  end
   def == money
     @amount == money.amount && self.class == money.class
   end
@@ -18,22 +22,12 @@ class Money
 end
 
 class Franc < Money
-  def initialize amount, currency
-    @amount = amount
-    @currency = currency
-  end
-
   def times multiplier
     Money.franc @amount * multiplier
   end
 end
 
 class Dollar < Money
-  def initialize amount, currency
-    @amount = amount
-    @currency = currency
-  end
-
   def times multiplier
     Money.dollar @amount * multiplier
   end
