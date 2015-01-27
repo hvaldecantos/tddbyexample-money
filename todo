@@ -2,6 +2,7 @@ To do list:
 
 5 USD + 10 CHF = 10 USD if CHF:USD is 2:1
 done => 5 USD * 2 = 10 USD
+done => 5 CHF * 2 = 10 CHF
 
 Smells:
 
@@ -11,3 +12,4 @@ Money rounding?
 done => object equality => def ==
 object equality nil => def ==
 object hash code => def hash
+Dollar/Franc duplication
