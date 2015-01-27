@@ -23,6 +23,10 @@ class Franc < Money
   def times multiplier
     Franc.new @amount * multiplier
   end
+
+  def currency
+    "CHF"
+  end
 end
 
 class Dollar < Money
@@ -32,6 +36,10 @@ class Dollar < Money
 
   def times multiplier
     Dollar.new @amount * multiplier
+  end
+
+  def currency
+    "USD"
   end
 end
 
