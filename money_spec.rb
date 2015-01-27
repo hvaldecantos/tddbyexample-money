@@ -10,36 +10,32 @@ class Money
   def self.franc amount
     Franc.new(amount)
   end
+  def currency
+    @currency
+  end
   protected
     attr_reader :amount
-
 end
 
 class Franc < Money
   def initialize amount
     @amount = amount
+    @currency = "CHF"
   end
 
   def times multiplier
     Franc.new @amount * multiplier
-  end
-
-  def currency
-    "CHF"
   end
 end
 
 class Dollar < Money
   def initialize amount
     @amount = amount
+    @currency = "USD"
   end
 
   def times multiplier
     Dollar.new @amount * multiplier
-  end
-
-  def currency
-    "USD"
   end
 end
 
