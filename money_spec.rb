@@ -55,4 +55,9 @@ RSpec.describe "Money" do
     expect(five.times(2)).to eq(Money.franc 10)
     expect(five.times(3)).to eq(Money.franc 15)
   end
+
+  it "is possible to get the currency string" do
+    expect("USD").to eq(Money.dollar(1).currency)
+    expect("CHF").to eq(Money.franc(1).currency)
+  end
 end
