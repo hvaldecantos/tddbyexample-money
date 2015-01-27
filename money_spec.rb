@@ -5,10 +5,10 @@ class Money
     @amount == money.amount && self.class == money.class
   end
   def self.dollar amount
-    Dollar.new(amount)
+    Dollar.new(amount, "USD")
   end
   def self.franc amount
-    Franc.new(amount)
+    Franc.new(amount, "CHF")
   end
   def currency
     @currency
@@ -18,32 +18,32 @@ class Money
 end
 
 class Franc < Money
-  def initialize amount
+  def initialize amount, currency
     @amount = amount
-    @currency = "CHF"
+    @currency = currency
   end
 
   def times multiplier
-    Franc.new @amount * multiplier
+    Money.franc @amount * multiplier
   end
 end
 
 class Dollar < Money
-  def initialize amount
+  def initialize amount, currency
     @amount = amount
-    @currency = "USD"
+    @currency = currency
   end
 
   def times multiplier
-    Dollar.new @amount * multiplier
+    Money.dollar @amount * multiplier
   end
 end
 
 RSpec.describe "Money" do
   it "can be multiplied" do
     five = Money.dollar(5)
-    expect(five.times(2)).to eq(Dollar.new 10)
-    expect(five.times(3)).to eq(Dollar.new 15)
+    expect(five.times(2)).to eq(Money.dollar 10)
+    expect(five.times(3)).to eq(Money.dollar 15)
   end
 
   it "can be compared for equality" do
