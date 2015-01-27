@@ -1,5 +1,14 @@
 require 'rspec/core'
 
+class Money
+  def == money
+    @amount == money.amount
+  end
+  protected
+    attr_reader :amount
+
+end
+
 class Franc
   def initialize amount
     @amount = amount
@@ -18,7 +27,7 @@ class Franc
 
 end
 
-class Dollar
+class Dollar < Money
   def initialize amount
     @amount = amount
   end
@@ -26,13 +35,6 @@ class Dollar
   def times multiplier
     Dollar.new @amount * multiplier
   end
-
-  def == dollar
-    @amount == dollar.amount
-  end
-
-  protected
-    attr_reader :amount
 
 end
 
