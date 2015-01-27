@@ -13,3 +13,6 @@ done => object equality => def ==
 object equality nil => def ==
 object hash code => def hash
 Dollar/Franc duplication
+common equality
+common times
+Francs != Dollars
