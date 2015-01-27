@@ -48,6 +48,8 @@ RSpec.describe "Money" do
   it "can be compared for equality" do
     expect(Dollar.new(5)).to eq(Dollar.new(5))
     expect(Dollar.new(5)).not_to eq(Dollar.new(6))
+    expect(Franc.new(5)).to eq(Franc.new(5))
+    expect(Franc.new(5)).not_to eq(Franc.new(6))
   end
 
   it "(Franc) can be multiplied" do
