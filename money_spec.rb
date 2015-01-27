@@ -13,6 +13,9 @@ class Dollar
     @amount
   end
 
+  def == dollar
+    amount == dollar.amount
+  end
 end
 
 RSpec.describe "Money" do

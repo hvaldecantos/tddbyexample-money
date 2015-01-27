@@ -8,5 +8,5 @@ Smells:
 Make "amount" private
 done => Dollar side-effects?
 Money rounding?
-object equality => def ==
+done => object equality => def ==
 object hash code => def hash
