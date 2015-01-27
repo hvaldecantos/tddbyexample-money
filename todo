@@ -5,8 +5,9 @@ done => 5 USD * 2 = 10 USD
 
 Smells:
 
-Make "amount" private
+done => Make "amount" private
 done => Dollar side-effects?
 Money rounding?
 done => object equality => def ==
+object equality nil => def ==
 object hash code => def hash
