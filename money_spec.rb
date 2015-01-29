@@ -48,6 +48,10 @@ RSpec.describe "Money" do
     expect(Money.franc(5)).not_to eq(Money.dollar(5))
   end
 
+  it "has to be equal when defferent class but same currency string" do
+    expect(Money.new(10, "CHF")).to eq(Franc.new(10, "CHF"))
+  end
+
   it "(Franc) can be multiplied" do
     five = Money.franc(5)
     expect(five.times(2)).to eq(Money.franc 10)
