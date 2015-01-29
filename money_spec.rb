@@ -31,6 +31,11 @@ RSpec.describe "Money" do
     expect(five.times(3)).to eq(Money.dollar 15)
   end
 
+  it "can be added" do
+    sum = Money.dollar(5).plus(Money.dollar(5))
+    expect(sum).to eq(Money.dollar(10))
+  end
+
   it "can be compared for equality" do
     expect(Money.dollar(5)).to eq(Money.dollar(5))
     expect(Money.dollar(5)).not_to eq(Money.dollar(6))
