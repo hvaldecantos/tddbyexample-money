@@ -1,20 +1,21 @@
-To do list:
+To do list:                                         Done
+------------------------------------------------------------------------------------
 
 5 USD + 10 CHF = 10 USD if CHF:USD is 2:1
-done => 5 USD * 2 = 10 USD
-done => 5 CHF * 2 = 10 CHF
+                                                    5 USD * 2 = 10 USD
+                                                    5 CHF * 2 = 10 CHF
 
-Smells:
 
-done => Make "amount" private
-done => Dollar side-effects?
+                                                    Make "amount" private
+                                                    Dollar side-effects?
 Money rounding?
-done => object equality => def ==
+                                                    object equality => def ==
 object equality nil => def ==
 object hash code => def hash
 Dollar/Franc duplication
-done => common equality
-done => common times
-done => Francs != Dollars
-done => need of currency?
-done => delete test franc multiplication?
+
+                                                    common equality
+                                                    common times
+                                                    Francs != Dollars
+                                                    need of currency?
+                                                    delete test franc multiplication?
