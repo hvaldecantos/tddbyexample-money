@@ -14,6 +14,9 @@ class Money
   def self.franc amount
     Franc.new(amount, "CHF")
   end
+  def times multiplier
+    Money.new @amount * multiplier, @currency
+  end
   def currency
     @currency
   end
@@ -22,15 +25,11 @@ class Money
 end
 
 class Franc < Money
-  def times multiplier
-    Money.new @amount * multiplier, @currency
-  end
+
 end
 
 class Dollar < Money
-  def times multiplier
-    Money.new @amount * multiplier, @currency
-  end
+
 end
 
 RSpec.describe "Money" do

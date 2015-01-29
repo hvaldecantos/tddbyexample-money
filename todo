@@ -14,7 +14,7 @@ object equality nil => def ==
 object hash code => def hash
 Dollar/Franc duplication
 done => common equality
-common times
+done => common times
 done => Francs != Dollars
 done => need of currency?
 delete test franc multiplication?
