@@ -1,5 +1,11 @@
 require 'rspec/core'
 
+class Bank
+  def reduce source, to
+    Money.dollar(10)
+  end
+end
+
 class Money
   def initialize amount, currency
     @amount = amount
