@@ -23,13 +23,13 @@ end
 
 class Franc < Money
   def times multiplier
-    Money.franc @amount * multiplier
+    Franc.new @amount * multiplier, @currency
   end
 end
 
 class Dollar < Money
   def times multiplier
-    Money.dollar @amount * multiplier
+    Dollar.new @amount * multiplier, @currency
   end
 end
 
