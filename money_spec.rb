@@ -9,10 +9,10 @@ class Money
     @amount == money.amount && self.currency == money.currency
   end
   def self.dollar amount
-    Dollar.new(amount, "USD")
+    Money.new(amount, "USD")
   end
   def self.franc amount
-    Franc.new(amount, "CHF")
+    Money.new(amount, "CHF")
   end
   def times multiplier
     Money.new @amount * multiplier, @currency
@@ -22,14 +22,6 @@ class Money
   end
   protected
     attr_reader :amount
-end
-
-class Franc < Money
-
-end
-
-class Dollar < Money
-
 end
 
 RSpec.describe "Money" do
@@ -42,19 +34,7 @@ RSpec.describe "Money" do
   it "can be compared for equality" do
     expect(Money.dollar(5)).to eq(Money.dollar(5))
     expect(Money.dollar(5)).not_to eq(Money.dollar(6))
-    expect(Money.franc(5)).to eq(Money.franc(5))
-    expect(Money.franc(5)).not_to eq(Money.franc(6))
     expect(Money.franc(5)).not_to eq(Money.dollar(5))
-  end
-
-  it "has to be equal when defferent class but same currency string" do
-    expect(Money.new(10, "CHF")).to eq(Franc.new(10, "CHF"))
-  end
-
-  it "(Franc) can be multiplied" do
-    five = Money.franc(5)
-    expect(five.times(2)).to eq(Money.franc 10)
-    expect(five.times(3)).to eq(Money.franc 15)
   end
 
   it "is possible to get the currency string" do
