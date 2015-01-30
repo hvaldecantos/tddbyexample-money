@@ -1,5 +1,15 @@
 require 'rspec/core'
 
+class Sum
+  def initialize augend, addend
+    @augend = augend
+    @addend = addend
+  end
+
+  attr_reader :augend
+  attr_reader :addend
+end
+
 class Bank
   def reduce source, to
     Money.dollar(10)
@@ -24,7 +34,7 @@ class Money
     Money.new @amount * multiplier, @currency
   end
   def plus addend
-    Money.new @amount + addend.amount, @currency
+    Sum.new self, addend
   end
   def currency
     @currency
