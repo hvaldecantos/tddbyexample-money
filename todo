@@ -11,7 +11,7 @@ return money from 5 USD + 5 USD
                                                     5 CHF * 2 = 10 CHF
 
                                                     Sum#plus
-Expression#times ?? duck typing!
+Expression#times ?? duck typing!    ------->        Sum#times
 
                                                     Make "amount" private
                                                     Dollar side-effects?
