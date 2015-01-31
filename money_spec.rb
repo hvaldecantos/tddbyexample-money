@@ -109,11 +109,6 @@ RSpec.describe "Money" do
     expect("CHF").to eq(Money.franc(1).currency)
   end
 
-  it "returns Money when adding" do
-    sum = Money.dollar(1).plus(Money.dollar(1))
-    expect(sum).to be_a_instance_of Money
-  end
-
 end
 
 RSpec.describe "Bank" do
