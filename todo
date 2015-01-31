@@ -4,6 +4,7 @@ To do list:                                         Done
 5 USD + 10 CHF = 10 USD if CHF:USD is 2:1
 5 USD + 5 USD = 10 USD
 return money from 5 USD + 5 USD
+Bank#reduce(Money)
                                                     5 USD * 2 = 10 USD
                                                     5 CHF * 2 = 10 CHF
 

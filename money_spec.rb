@@ -5,6 +5,10 @@ class Sum
     @augend = augend
     @addend = addend
   end
+  def reduce to
+    amount = augend.amount + addend.amount
+    Money.new(amount, to)
+  end
 
   attr_reader :augend
   attr_reader :addend
@@ -12,8 +16,7 @@ end
 
 class Bank
   def reduce source, to
-    amount = source.augend.amount + source.addend.amount
-    Money.new(amount, to)
+    source.reduce to
   end
 end
 
