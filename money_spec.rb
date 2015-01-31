@@ -16,7 +16,6 @@ end
 
 class Bank
   def reduce source, to
-    return source if(source.instance_of? Money)
     source.reduce to
   end
 end
@@ -40,6 +39,9 @@ class Money
   end
   def plus addend
     Sum.new self, addend
+  end
+  def reduce to
+    self
   end
   def currency
     @currency
