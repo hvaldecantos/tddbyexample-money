@@ -5,6 +5,8 @@ To do list:                                         Done
 5 USD + 5 USD = 10 USD
 return money from 5 USD + 5 USD
                                                     Bank#reduce(Money)
+                                                    reduce money with conversion
+                                                    reduce(Bank, string)
                                                     5 USD * 2 = 10 USD
                                                     5 CHF * 2 = 10 CHF
 
