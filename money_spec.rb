@@ -40,6 +40,9 @@ class Money
   def plus addend
     Sum.new self, addend
   end
+  def reduce to
+    self
+  end
   def currency
     @currency
   end
@@ -87,5 +90,11 @@ RSpec.describe "Bank" do
     bank = Bank.new
     result = bank.reduce(sum, "USD")
     expect(result).to eq(Money.dollar(7))
+  end
+
+  it "reduces Money" do
+    bank = Bank.new
+    result = bank.reduce(Money.dollar(1), "USD")
+    expect(result).to eq(Money.dollar(1))
   end
 end
