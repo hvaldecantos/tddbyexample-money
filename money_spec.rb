@@ -12,6 +12,9 @@ class Sum
   def plus addend
     Sum.new self, addend
   end
+  def times multiplier
+    Sum.new @augend.times(multiplier), @addend.times(multiplier)
+  end
 
   attr_reader :augend
   attr_reader :addend
@@ -142,5 +145,15 @@ RSpec.describe "Sum" do
     sum = Sum.new(five_bucks, ten_francs).plus(five_bucks)
     result = bank.reduce(sum, "USD")
     expect(result).to eq(Money.dollar(15))
+  end
+
+  it "can be multiplied" do
+    five_bucks = Money.dollar(5)
+    ten_francs = Money.franc(10)
+    bank = Bank.new
+    bank.add_rate("CHF", "USD", 2)
+    sum = Sum.new(five_bucks, ten_francs).times(2)
+    result = bank.reduce(sum, "USD")
+    expect(result).to eq(Money.dollar(20))
   end
 end
