@@ -9,6 +9,9 @@ class Sum
     amount = augend.reduce(bank, to).amount + addend.reduce(bank, to).amount
     Money.new(amount, to)
   end
+  def plus addend
+    Sum.new self, addend
+  end
 
   attr_reader :augend
   attr_reader :addend
@@ -127,5 +130,17 @@ RSpec.describe "Bank" do
     bank.add_rate("CHF", "USD", 2)
     result = bank.reduce(Money.franc(2), "USD")
     expect(result).to eq(Money.dollar(1))
+  end
+end
+
+RSpec.describe "Sum" do
+  it "can be added Money" do
+    five_bucks = Money.dollar(5)
+    ten_francs = Money.franc(10)
+    bank = Bank.new
+    bank.add_rate("CHF", "USD", 2)
+    sum = Sum.new(five_bucks, ten_francs).plus(five_bucks)
+    result = bank.reduce(sum, "USD")
+    expect(result).to eq(Money.dollar(15))
   end
 end
