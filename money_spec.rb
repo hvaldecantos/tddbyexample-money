@@ -6,7 +6,7 @@ class Dollar
   end
 
   def times multiplier
-    @amount *= multiplier
+    Dollar.new @amount * multiplier
   end
 
   def amount
@@ -17,7 +17,9 @@ end
 RSpec.describe "Money" do
   it "can be multiplied" do
     five = Dollar.new(5)
-    five.times(2)
-    expect(five.amount).to eq(10)
+    product = five.times(2)
+    expect(product.amount).to eq(10)
+    product = five.times(3)
+    expect(product.amount).to eq(15)
   end
 end
