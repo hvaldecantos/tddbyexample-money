@@ -1,5 +1,15 @@
 require 'rspec/core'
 
+class Sum
+  def initialize augend, addend
+    @augend = augend
+    @addend = addend
+  end
+
+  attr_reader :augend
+  attr_reader :addend
+end
+
 class Bank
   def reduce source, to
     Money.dollar(10)
@@ -24,7 +34,7 @@ class Money
     Money.new @amount * multiplier, @currency
   end
   def plus addend
-    Money.new @amount + addend.amount, @currency
+    Sum.new self, addend
   end
   def currency
     @currency
@@ -46,6 +56,13 @@ RSpec.describe "Money" do
     bank = Bank.new
     reduced = bank.reduce(sum, "USD")
     expect(reduced).to eq(Money.dollar(10))
+  end
+
+  it "returns a Sum when adding" do
+    five = Money.dollar(5)
+    sum = five.plus(five)
+    expect(sum.augend).to eq(five)
+    expect(sum.addend).to eq(five)
   end
 
   it "can be compared for equality" do
