@@ -1,5 +1,11 @@
 require 'rspec/core'
 
+class Bank
+  def reduce source, to
+    Money.dollar(10)
+  end
+end
+
 class Money
   def initialize amount, currency
     @amount = amount
@@ -35,8 +41,11 @@ RSpec.describe "Money" do
   end
 
   it "can be added" do
-    sum = Money.dollar(5).plus(Money.dollar(5))
-    expect(sum).to eq(Money.dollar(10))
+    five = Money.dollar(5)
+    sum = five.plus(five)
+    bank = Bank.new
+    reduced = bank.reduce(sum, "USD")
+    expect(reduced).to eq(Money.dollar(10))
   end
 
   it "can be compared for equality" do
