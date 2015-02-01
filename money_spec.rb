@@ -9,7 +9,7 @@ class Money
 
 end
 
-class Franc
+class Franc < Money
   def initialize amount
     @amount = amount
   end
@@ -17,14 +17,6 @@ class Franc
   def times multiplier
     Franc.new @amount * multiplier
   end
-
-  def == franc
-    @amount == franc.amount
-  end
-
-  protected
-    attr_reader :amount
-
 end
 
 class Dollar < Money
@@ -35,7 +27,6 @@ class Dollar < Money
   def times multiplier
     Dollar.new @amount * multiplier
   end
-
 end
 
 RSpec.describe "Money" do
@@ -48,6 +39,8 @@ RSpec.describe "Money" do
   it "can be compared for equality" do
     expect(Dollar.new(5)).to eq(Dollar.new(5))
     expect(Dollar.new(5)).not_to eq(Dollar.new(6))
+    expect(Franc.new(5)).to eq(Franc.new(5))
+    expect(Franc.new(5)).not_to eq(Franc.new(6))
   end
 
   it "(Franc) can be multiplied" do
