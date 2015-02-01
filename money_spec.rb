@@ -17,6 +17,9 @@ class Money
   def times multiplier
     Money.new @amount * multiplier, @currency
   end
+  def plus addend
+    Money.new @amount + addend.amount, @currency
+  end
   def currency
     @currency
   end
@@ -29,6 +32,11 @@ RSpec.describe "Money" do
     five = Money.dollar(5)
     expect(five.times(2)).to eq(Money.dollar 10)
     expect(five.times(3)).to eq(Money.dollar 15)
+  end
+
+  it "can be added" do
+    sum = Money.dollar(5).plus(Money.dollar(5))
+    expect(sum).to eq(Money.dollar(10))
   end
 
   it "can be compared for equality" do
