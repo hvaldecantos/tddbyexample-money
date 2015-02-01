@@ -5,6 +5,10 @@ class Sum
     @augend = augend
     @addend = addend
   end
+  def reduce to
+    amount = augend.amount + addend.amount
+    Money.new(amount, to)
+  end
 
   attr_reader :augend
   attr_reader :addend
@@ -12,7 +16,7 @@ end
 
 class Bank
   def reduce source, to
-    Money.dollar(10)
+    source.reduce to
   end
 end
 
@@ -39,8 +43,8 @@ class Money
   def currency
     @currency
   end
-  protected
-    attr_reader :amount
+
+  attr_reader :amount
 end
 
 RSpec.describe "Money" do
@@ -74,5 +78,14 @@ RSpec.describe "Money" do
   it "is possible to get the currency string" do
     expect("USD").to eq(Money.dollar(1).currency)
     expect("CHF").to eq(Money.franc(1).currency)
+  end
+end
+
+RSpec.describe "Bank" do
+  it "reduces a Sum" do
+    sum = Sum.new(Money.dollar(3), Money.dollar(4))
+    bank = Bank.new
+    result = bank.reduce(sum, "USD")
+    expect(result).to eq(Money.dollar(7))
   end
 end
